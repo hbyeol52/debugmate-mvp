@@ -1,0 +1,16 @@
+{
+  "name": "debugmate-frontend-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src/main/resources/static/js/**/*.js",
+    "lint:fix": "eslint src/main/resources/static/js/**/*.js --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

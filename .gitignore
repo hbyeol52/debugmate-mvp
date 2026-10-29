@@ -1,0 +1,42 @@
+# Maven build output
+target/
+data/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+application-local.properties
+application-secret.properties
+
+# Logs and runtime files
+*.log
+logs/
+*.pid
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Node frontend tooling
+node_modules/
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.swp
+*~

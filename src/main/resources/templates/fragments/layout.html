@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<header class="site-header" th:fragment="header(active)">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}" aria-label="DebugMate 홈">
+            <span class="brand-mark">D</span><span>DebugMate</span>
+        </a>
+        <nav class="primary-nav" aria-label="주요 메뉴">
+            <a th:href="@{/}" th:classappend="${active == 'home'} ? ' active'">대시보드</a>
+            <a th:href="@{/errors/new}" th:classappend="${active == 'new'} ? ' active'">오류 등록</a>
+            <a th:href="@{/errors}" th:classappend="${active == 'history'} ? ' active'">해결 기록</a>
+            <a th:href="@{/about}" th:classappend="${active == 'about'} ? ' active'">MVP 안내</a>
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/seniors}" th:classappend="${active == 'admin'} ? ' active'">시니어 승인</a>
+        </nav>
+        <div class="account-menu" sec:authorize="isAuthenticated()">
+            <span><b sec:authentication="name">user@email.com</b><small sec:authorize="hasRole('JUNIOR')">주니어</small><small sec:authorize="hasRole('SENIOR')">시니어</small><small sec:authorize="hasRole('ADMIN')">관리자</small></span>
+            <form th:action="@{/logout}" method="post"><button class="text-button" type="submit">로그아웃</button></form>
+        </div>
+        <div class="account-menu" sec:authorize="isAnonymous()">
+            <a class="button secondary compact" th:href="@{/login}">로그인</a>
+            <a class="button primary compact" th:href="@{/signup}">회원가입</a>
+        </div>
+    </div>
+</header>
+
+<footer class="site-footer" th:fragment="footer">
+    <div class="container footer-inner">
+        <span>DebugMate MVP</span><span>AI 연결 전 단계 · 학습과 검증 중심의 오류 관리</span>
+    </div>
+</footer>
+</body>
+</html>
