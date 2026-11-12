@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ko" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>오류 등록 · DebugMate</title><link rel="stylesheet" th:href="@{/css/app.css(v='20261029-3')}"><script defer th:src="@{/js/app.js(v='20261029-3')}"></script></head><body>
+<!DOCTYPE html><html lang="ko" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>오류 등록 · CodeMate</title><link rel="stylesheet" th:href="@{/css/app.css(v='20261029-3')}"><script defer th:src="@{/js/app.js(v='20261029-3')}"></script></head><body>
 <header th:replace="~{fragments/layout :: header('new')}"></header><main id="main-content" class="container page-shell narrow"><div class="page-heading"><p class="eyebrow">NEW ERROR CASE</p><h1>오류 정보 등록</h1><p>문제를 다시 이해할 수 있도록 실행 환경과 시도한 내용을 함께 기록하세요.</p></div>
 <div class="notice"><strong>AI 분석 준비 중</strong><span>현재 버전은 오류 기록과 상태 관리 기능만 제공합니다.</span></div>
 <form class="form-stack" th:action="@{/errors}" th:object="${errorCase}" method="post">

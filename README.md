@@ -1,4 +1,4 @@
-# DebugMate MVP
+# CodeMate MVP
 
 주니어 개발자가 오류 코드와 로그를 기록하고 해결 상태를 관리하는 Spring Boot 기반 MVP입니다. AI 연동은 아직 포함하지 않았습니다.
 
@@ -15,7 +15,7 @@
 1. MySQL Workbench 또는 MySQL 명령창에서 `database/setup.sql`을 실행합니다.
 2. IntelliJ에서 `pom.xml`을 프로젝트로 엽니다.
 3. MySQL의 root 비밀번호가 있다면 실행 환경변수 `DB_PASSWORD`에 설정합니다.
-4. `DebugMateApplication`을 실행하고 `http://localhost:8080`에 접속합니다.
+4. `CodeMateApplication`을 실행하고 `http://localhost:8080`에 접속합니다.
 
 환경변수로 연결 정보를 바꿀 수 있습니다.
 

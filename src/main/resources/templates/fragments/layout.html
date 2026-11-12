@@ -4,8 +4,8 @@
 <header class="site-header" th:fragment="header(active)">
     <a class="skip-link" href="#main-content">본문 바로가기</a>
     <div class="container header-inner">
-        <a class="brand" th:href="@{/}" aria-label="DebugMate 홈">
-            <span class="brand-mark">D</span><span>DebugMate</span>
+        <a class="brand" th:href="@{/}" aria-label="CodeMate 홈">
+            <span class="brand-mark">D</span><span>CodeMate</span>
         </a>
         <nav class="primary-nav" aria-label="주요 메뉴">
             <a th:href="@{/}" th:classappend="${active == 'home'} ? ' active'">대시보드</a>
@@ -36,7 +36,7 @@
 
 <footer class="site-footer" th:fragment="footer">
     <div class="container footer-inner">
-        <span>DebugMate MVP</span><span>AI 연결 전 단계 · 학습과 검증 중심의 오류 관리</span>
+        <span>CodeMate MVP</span><span>AI 연결 전 단계 · 학습과 검증 중심의 오류 관리</span>
     </div>
 </footer>
 </body>
