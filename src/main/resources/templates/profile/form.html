@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>프로필 설정 · DebugMate</title>
+    <link rel="stylesheet" th:href="@{/css/app.css(v='20261112-profile')}">
+</head>
+<body>
+<header th:replace="~{fragments/layout :: header('profile')}"></header>
+<main id="main-content" class="container page-shell narrow">
+    <div class="page-heading"><p class="eyebrow">DEVELOPER PROFILE</p><h1>내 프로필 설정</h1><p>기술과 관심사를 알려 주세요. 프로필 카드는 안전한 CSS 선언으로만 꾸밀 수 있습니다.</p></div>
+    <div class="flash" th:if="${message}" th:text="${message}"></div>
+    <section class="profile-preview" th:attr="style=${user.customCss}">
+        <span class="profile-role" th:text="${user.role.label}">개발자</span>
+        <h2 th:text="${user.displayName}">이름</h2>
+        <p th:text="${#strings.isEmpty(user.careerSummary) ? '소개를 작성하면 이곳에 표시됩니다.' : user.careerSummary}">소개</p>
+        <div class="profile-tags" th:if="${!#strings.isEmpty(user.techStack)}"><span th:each="tag : ${#strings.arraySplit(user.techStack, ',')}" th:text="${#strings.trim(tag)}">Java</span></div>
+    </section>
+    <form class="form-stack profile-form" th:action="@{/profile}" th:object="${profileForm}" method="post">
+        <div class="form-grid">
+            <div class="field"><label for="displayName">표시 이름 <em>*</em></label><input id="displayName" th:field="*{displayName}" maxlength="60" required><small class="field-error" th:errors="*{displayName}"></small></div>
+            <div class="field"><label for="portfolioUrl">포트폴리오 링크</label><input id="portfolioUrl" th:field="*{portfolioUrl}" maxlength="500" placeholder="https://github.com/..."></div>
+        </div>
+        <div class="field"><label for="careerSummary">소개·경력</label><textarea id="careerSummary" th:field="*{careerSummary}" rows="4" maxlength="3000" placeholder="주요 경험과 현재 관심사를 소개해 주세요."></textarea></div>
+        <div class="form-grid">
+            <div class="field"><label for="techStack">기술 스택</label><input id="techStack" th:field="*{techStack}" maxlength="1000" placeholder="Java, Spring Boot, MySQL"></div>
+            <div class="field"><label for="interests">관심 분야</label><input id="interests" th:field="*{interests}" maxlength="1000" placeholder="백엔드, 성능 최적화"></div>
+        </div>
+        <div class="field css-editor"><label for="customCss">프로필 카드 CSS</label><textarea id="customCss" th:field="*{customCss}" rows="5" maxlength="2000" placeholder="background-color: #eef0ff; color: #1f2a5a; border-radius: 24px;"></textarea><p>허용 속성: <code>background-color</code>, <code>color</code>, <code>border-color</code>, <code>border-radius</code>, <code>font-family</code>, <code>font-size</code>, <code>line-height</code>. 선택자, HTML, JavaScript, URL은 사용할 수 없습니다.</p><small class="field-error" th:errors="*{customCss}"></small></div>
+        <div class="form-actions"><a class="button secondary" th:href="@{/}">취소</a><button class="button primary" type="submit">프로필 저장</button></div>
+    </form>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

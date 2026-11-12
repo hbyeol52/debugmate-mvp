@@ -17,6 +17,6 @@ public class AdminInitializer implements CommandLineRunner {
         if (password == null || password.isBlank() || repository.existsByEmailIgnoreCase(email)) return;
         UserAccount admin = new UserAccount(); admin.setEmail(email.toLowerCase()); admin.setDisplayName("관리자");
         admin.setPasswordHash(encoder.encode(password)); admin.setRole(UserRole.ADMIN);
-        admin.setApprovalStatus(ApprovalStatus.APPROVED); repository.save(admin);
+        admin.setApprovalStatus(ApprovalStatus.APPROVED); admin.setProfileCompleted(true); repository.save(admin);
     }
 }

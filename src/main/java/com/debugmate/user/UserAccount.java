@@ -22,6 +22,14 @@ public class UserAccount {
     private String careerSummary;
     @Column(length = 500)
     private String portfolioUrl;
+    @Column(columnDefinition = "TEXT")
+    private String techStack;
+    @Column(columnDefinition = "TEXT")
+    private String interests;
+    @Column(columnDefinition = "TEXT")
+    private String customCss;
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean profileCompleted = false;
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
@@ -41,5 +49,13 @@ public class UserAccount {
     public void setCareerSummary(String careerSummary) { this.careerSummary = careerSummary; }
     public String getPortfolioUrl() { return portfolioUrl; }
     public void setPortfolioUrl(String portfolioUrl) { this.portfolioUrl = portfolioUrl; }
+    public String getTechStack() { return techStack; }
+    public void setTechStack(String techStack) { this.techStack = techStack; }
+    public String getInterests() { return interests; }
+    public void setInterests(String interests) { this.interests = interests; }
+    public String getCustomCss() { return customCss; }
+    public void setCustomCss(String customCss) { this.customCss = customCss; }
+    public boolean isProfileCompleted() { return profileCompleted; }
+    public void setProfileCompleted(boolean profileCompleted) { this.profileCompleted = profileCompleted; }
     public LocalDateTime getCreatedAt() { return createdAt; }
 }
